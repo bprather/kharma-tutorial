@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+
+    <script>
+        my_name = "Prather"
+        talk_name = "GRMHD Tutorial, IAA"
+    </script>
+
+    <head>
+        <meta charset="utf-8">
+
+        <title>GRMHD Tutorial Day 5</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <link rel="stylesheet" href="reveal.js/dist/reveal.css">
+        <link rel="stylesheet" href="reveal.js/dist/theme/serif.css" id="theme">
+        <link rel="stylesheet" href="reveal.js/plugin/highlight/monokai.css">
+        <link rel="stylesheet" href="slide-types.css">
+    </head>
+
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section data-markdown="day5.md"></section>
+            </div>
+        </div>
+
+        <script src="reveal.js/dist/reveal.js"></script>
+        <script src="reveal.js/plugin/highlight/highlight.js"></script>
+        <script src="reveal.js/plugin/markdown/markdown.js"></script>
+        <script src="reveal.js/plugin/notes/notes.js"></script>
+        <script src="reveal.js/plugin/math/math.js"></script>
+        <script>
+            Reveal.initialize({
+                center: true,
+                hash: true,
+                transition: 'fade',
+                backgroundTransition: 'fade',
+
+                autoAnimate: true,
+                autoAnimateEasing: 'ease',
+                autoAnimateDuration: 0.5,
+                autoAnimateUnmatched: true,
+
+                // Auto layout options
+                width: 1920,
+                height: 1080,
+                margin: 0.04,
+                minScale: 0.001,
+                maxScale: 200.0,
+                // OR skip all layout
+                disableLayout: false,
+
+                slideNumber: true,
+                controls: false,
+                progress: false,
+                navigationMode: 'default',
+                autoPlayMedia: true,
+                plugins: [ RevealHighlight, RevealMarkdown, RevealNotes, RevealMath.KaTeX ]
+            });
+        </script>
+
+    </body>
+
+    <!-- Footer w/talk title, date, logo -->
+    <style type="text/css">
+            #footer-left {
+                    position: absolute;
+                    margin-bottom: 5px;
+                    bottom: 0%;
+                    left: 0%;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    align-items: center;
+            }
+    </style>
+
+    <!-- 2. Create hidden header/footer <div> -->
+    <div id="hidden" style="display:none;">
+            <div id="header">
+                    <div id="footer-left">
+                        <img src="Figures/brand/Harvard/BHI-Logo-Black-on-White-Transparent-1024x496.png" width="100" />
+                            <div id="footer_with_date">
+                                    <script>
+                                            date = new Date();
+                                            year = date.getFullYear();
+                                            month = date.getMonth() + 1;
+                                            day = date.getDate();
+                                            document.getElementById("footer_with_date").innerHTML = "<p style=\"font-size: 20px;\"> &nbsp; &nbsp; " + my_name + ", "
+                                                                                                                                                            + talk_name + ", " + year + "-" + month + "-" + day + "</p>";
+                                    </script>
+                            </div>
+                    </div>
+            </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script type="text/javascript">
+            // 3. On Reveal.js ready event, copy header/footer <div> into each `.slide-background` <div>
+            var header = $('#header').html();
+            if ( window.location.search.match( /print-pdf/gi ) ) {
+                    Reveal.addEventListener( 'ready', function( event ) {
+                            $('.slide-background').append(header);
+                    });
+            }
+            else {
+                    $('div.reveal').append(header);
+        }
+    </script>
+
+</html>
