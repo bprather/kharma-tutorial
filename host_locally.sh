@@ -1,0 +1,4 @@
+#!/bin/bash
+
+npx http-server . -o -p 8080
+
